@@ -1,0 +1,47 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Netlify Puppeteer Test</title>
+    <meta name="description" content="We had a real hassle getting puppeteer working on Netlify, but we did, and here is a demo project for our reference." />
+
+    <style>
+      * {
+        font-family: 'SF Mono', 'Fira Mono', monospace;
+        color: #fff;
+      }
+      body {
+        background-color: #830083;
+        inline-size: min(90vw, 40rem);
+        margin-inline: auto;
+        display: flex;
+        line-height: 1.2;
+        flex-direction: column;
+        justify-content: center;
+        padding-block: 3rem;
+        justify-content: center;
+      }
+    </style>
+  </head>
+  <body>
+    <h2>Test</h2>
+
+    <pre class="test">Loading test…</pre>
+
+    <script>
+      const testEl = document.querySelector('.test')
+
+      const getTest = async () => {
+        const testData = await fetch('/.netlify/functions/puppet')
+        const test = await testData.json()
+        return test
+      }
+
+      ;(async () => {
+        const test = await getTest()
+        testEl.innerHTML = test
+      })()
+    </script>
+  </body>
+</html>

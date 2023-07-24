@@ -1,0 +1,16 @@
+{
+  "name": "netlify-puppeteer-demo",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@sparticuz/chromium": "^113.0.1",
+    "puppeteer-core": "^20.1.1"
+  }
+}
