@@ -1,0 +1,12 @@
+# example netlify.toml
+[build]
+  command = "# no build command"
+  functions = "netlify/functions"
+  publish = "."
+
+[dev]
+  autoLaunch = false
+
+[functions]
+  node_bundler = "esbuild"
+  external_node_modules = ["@sparticuz/chromium"]

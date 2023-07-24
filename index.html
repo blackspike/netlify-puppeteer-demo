@@ -12,35 +12,49 @@
         color: #fff;
       }
       body {
-        background-color: #830083;
-        inline-size: min(90vw, 40rem);
-        margin-inline: auto;
+        background-color: #1e1e1e;
         display: flex;
-        line-height: 1.2;
         flex-direction: column;
-        justify-content: center;
+        inline-size: min(90vw, 60rem);
+        line-height: 1.5;
+        margin-inline: auto;
         padding-block: 3rem;
-        justify-content: center;
+      }
+      .news {
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+      }
+      a {
+        text-decoration-style: dotted;
+        text-decoration-thickness: 3px;
+        text-underline-offset: 0.2em;
+        text-decoration-color: rgb(255 255 255 / 0.3);
       }
     </style>
   </head>
   <body>
-    <h2>Test</h2>
+    <h2>Puppeteer Test</h2>
 
-    <pre class="test">Loading test…</pre>
+    <div class="news">Loading news</div>
 
     <script>
-      const testEl = document.querySelector('.test')
+      const newsEl = document.querySelector('.news')
 
-      const getTest = async () => {
-        const testData = await fetch('/.netlify/functions/puppet')
-        const test = await testData.json()
-        return test
+      const getPuppeteerData = async () => {
+        const puppetData = await fetch('/.netlify/functions/puppet')
+        const news = await puppetData.json()
+        return news
       }
 
       ;(async () => {
-        const test = await getTest()
-        testEl.innerHTML = test
+        const news = await getPuppeteerData()
+        const items = news
+          .map((item) => {
+            return `<div><h2><a href="${item.url}">${item.title}</a></h2>`
+          })
+          .join('')
+        newsEl.innerHTML = items
       })()
     </script>
   </body>
