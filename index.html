@@ -8,24 +8,22 @@
 
     <style>
       * {
-        font-family: 'SF Mono', 'Fira Mono', monospace;
         color: #fff;
+        font-family: sans-serif;
+        font-weight: normal;
       }
       body {
         background-color: #1e1e1e;
-        display: flex;
-        flex-direction: column;
-        inline-size: min(90vw, 60rem);
+        font-size: 1rem;
+        inline-size: min(90vw, 50rem);
         line-height: 1.5;
         margin-inline: auto;
         padding-block: 3rem;
       }
-      .news {
-        display: flex;
-        flex-direction: column;
-        gap: 1rem;
-      }
-      a {
+      .news a {
+        display: block;
+        margin-block-start: 1rem;
+        font-size: 1.3rem;
         text-decoration-style: dotted;
         text-decoration-thickness: 3px;
         text-underline-offset: 0.2em;
@@ -34,9 +32,11 @@
     </style>
   </head>
   <body>
-    <h2>Puppeteer Test</h2>
+    <h2>Netlify Puppeteer Test</h2>
 
-    <div class="news">Loading news</div>
+    <p>News headlines from <a href="https://lite.cnn.com/">cnn lite</a></p>
+
+    <div class="news">Loading news…</div>
 
     <script>
       const newsEl = document.querySelector('.news')
